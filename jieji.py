@@ -112,8 +112,8 @@ class Line_Segment():
     y = [self.p2.y_coord , self.p2.y_coord]
     plt.plot(x,y)
 
-def create_line (puntoa , puntob):
-	return Line(puntoa , puntob)
+def create_line_segment (puntoa , puntob):
+	return Line_Segment(puntoa , puntob)
 
 class Math_Vector():
     """2d math vector"""
@@ -170,9 +170,10 @@ class Circle():
 
 class Quadrilateral():
     def __init__(self , a , b , c , d):
-        self.points = [a,b,c,d]
+        self.points = {a,b,c,d}
     
     def Circumference(self):
+        a,b,c,d=self.points
         return (distance(a,b) + distance(b,c) + distance(c,d) + distance(d,a))
     
     def All_Equal(self , other):
@@ -180,13 +181,14 @@ class Quadrilateral():
 
 class Triangle():
     def __init__(self,a,b,c):
-        self.points = [a,b,c]
+        self.points = {a,b,c}
     
     def Sides(self):
+	    a,b,c=self.points
         toa = distance(b,c)
         tob = distance(a,c)
         toc = distance(a,b)
-        return [toa , tob , toc]
+        return {toa , tob , toc}
     
     def All_Equal(self , other):
         return self.points == other.points
