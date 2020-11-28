@@ -123,28 +123,28 @@ class Math_Vector():
         self.y = y
     
     def __add__(self , other):
-	    return Math_Vector ( self.x + other.x , self.y + other.y )
+        return Math_Vector ( self.x + other.x , self.y + other.y )
 	
     def __neg__(self):
-	    return Math_Vector (-self.x , -self.y)
+        return Math_Vector (-self.x , -self.y)
 	
     def __pos__(self):
-	    return self
+        return self
     
     def __sub__(self , other):
-	    return -self + other
+        return -self + other
     
     def __mul__(self , other):
-	    if (Is_arithmetic(other)):
-	        return Math_Vector ( self.x * other , self.y * other )
+        if (Is_arithmetic(other)):
+            return Math_Vector ( self.x * other , self.y * other )
 
 class Circle():
 	"""a circle defined by the center and radius"""
-  
+    
 	def __init__(self , center , radius):
 		self.center = center
 		self.radius = radius
-  
+    
 	def __eq__(self , otro):
 		"""
 		note: this only checks if the two are equal in normal geometry terms.
@@ -152,10 +152,10 @@ class Circle():
 		If you wnat checking against the center, use All_Equal.
 		"""
 		return self.radius == otro.radius
-
+    
 	def __ne__(self , otro):
 		return not self == otro
-
+    
 	def All_Equal(self , otro):
 		return self == otro and self.center == otro.center
     
@@ -184,7 +184,7 @@ class Triangle():
         self.points = {a,b,c}
     
     def Sides(self):
-	    a,b,c=self.points
+        a,b,c=self.points
         toa = distance(b,c)
         tob = distance(a,c)
         toc = distance(a,b)
