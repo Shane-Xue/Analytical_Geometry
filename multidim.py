@@ -6,9 +6,19 @@ def Point():
         self.coords=coords
     
     def __eq__(self,other):
-        return (self.coords=other.coords)
+        return (self.coords==other.coords)
     
-    def __ne__(self,other)
+    def __ne__(self,other):
         return !(self==other)
     
+    
+def Vector():
+    def __init__(self,coords):
+        self.coords=coords
+    
+    def __eq__(self,other):
+        return self.coords==other.coords
+    
+    def __ne__(self,other):
+        return !(self==other)
     
