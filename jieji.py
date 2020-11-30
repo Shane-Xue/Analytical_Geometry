@@ -26,9 +26,7 @@ def Is_arithmetic(arg):
 
 def swap(arguno , argdos):
     """helper function to swap the value of two variables"""
-    temp = arguno
-    arguno = argdos
-    argdos = temp
+    arguno,argdos=argdos,arguno
 
 def with_symbol(a):
 	assert(Is_arithmetic(a))
@@ -137,6 +135,8 @@ class Math_Vector():
     def __mul__(self , other):
         if (Is_arithmetic(other)):
             return Math_Vector ( self.x * other , self.y * other )
+        if (type(other)=Math_Vector):
+            return Math_Vector(self.x*other.x,self.y*other.y)
 
 class Circle():
 	"""a circle defined by the center and radius"""
@@ -166,11 +166,15 @@ class Circle():
 		return expr
 	
 	def __str__(self):
-		return self.Expr()
+		return str(self.Expr())
+    
 
 class Quadrilateral():
     def __init__(self , a , b , c , d):
         self.points = {a,b,c,d}
+    
+    def Sides(self):
+        a,b,c,d=self.points
     
     def Circumference(self):
         a,b,c,d=self.points
